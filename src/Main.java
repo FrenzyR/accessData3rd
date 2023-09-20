@@ -22,12 +22,5 @@ public class Main {
 			}
 			i++;
 		} while (!textFileBuilder.append(textReader.nextLine()).toString().contains(givenLine));
-		/*String textFile = textFileBuilder.toString();
-		String[] textFileLines = textFile.split("\n");
-		for (int i = 0; i < textFileLines.length; i++) {
-			if (textFileLines[i].contains(givenLine)) {
-
-			}
-		}*/
 	}
 }
