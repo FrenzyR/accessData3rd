@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
-		Main.givenAFileShowStringAlongWithTheLineNumber("hey", new File("./quijote.txt"));
+		Main.givenAFileShowStringAlongWithTheLineNumber("aventura, y muchas veces", new File("./quijote.txt"));
 	}
 
 	public static void givenAFileShowStringAlongWithTheLineNumber(String givenLine, File givenFile) {
@@ -15,16 +15,19 @@ public class Main {
 		} catch (FileNotFoundException e) {
 			throw new RuntimeException(e);
 		}
-		while (textReader.hasNextLine()) {
-			textFileBuilder.append(textReader.nextLine());
-		}
-		String textFile = textFileBuilder.toString();
+		int i = 0;
+		do {
+			if (textFileBuilder.append(textReader.nextLine()).toString().contains(givenLine)){
+				System.out.println(givenLine + " <-exists\nIn the line-> " + i); //Encuentras el string, pero no en qué linea
+			}
+			i++;
+		} while (!textFileBuilder.append(textReader.nextLine()).toString().contains(givenLine));
+		/*String textFile = textFileBuilder.toString();
 		String[] textFileLines = textFile.split("\n");
 		for (int i = 0; i < textFileLines.length; i++) {
 			if (textFileLines[i].contains(givenLine)) {
 
 			}
-		}
-		System.out.println(textFile);
+		}*/
 	}
 }
