@@ -18,7 +18,7 @@ public class Main {
 		int i = 0;
 		do {
 			if (textFileBuilder.append(textReader.nextLine()).toString().contains(givenLine)){
-				System.out.println(givenLine + " <-exists\nIn the line-> " + i); //Encuentras el string, pero no en qué linea
+				System.out.println(givenLine + " <-exists\nIn the line-> " + (i+1)); //Encuentras el string, pero no en qué linea
 			}
 			i++;
 		} while (!textFileBuilder.append(textReader.nextLine()).toString().contains(givenLine));
